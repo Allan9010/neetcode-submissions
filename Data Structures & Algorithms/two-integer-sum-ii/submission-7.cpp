@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int front = 0, back = numbers.size() - 1;
+        while(front < back){
+            while(numbers[front] + numbers[back] > target) back--;
+            while(numbers[front] + numbers[back] < target) front++;
+            if(numbers[front] + numbers[back] == target) return {front + 1, back + 1};
+        }
+        
+        return {};
+    }
+};
